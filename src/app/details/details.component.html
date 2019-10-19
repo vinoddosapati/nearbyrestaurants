@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="input-group col-md-4">
+        <input [(ngModel)] = "searchquery" class="form-control py-2" type="search" id="example-search-input">
+
+        <span class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)=fetchApiResults() >
+                <i class="fa fa-search">search</i>
+            </button>
+        </span>
+    </div>
+</div>
+
+
+<input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+
+<!-- <app-profile-page></app-profile-page> -->
+
+<div class="card-deck">
+  <div *ngFor="let result of results">
+    <div class="card" style="width: 20rem;">
+      <img src="https://i.kinja-img.com/gawker-media/image/upload/gmarvnoino9qfcjigayg.jpg" class="img-fluid" alt="Image">
+      <div class="card-body">
+        <h5 class="card-title">{{result.name}}</h5>
+        <p class="card-text">{{result.vicinity}}</p>
+        <a [routerLink]="['/profile']" routerLinkActive="router-link-active" class="btn btn-primary" (click)="onSelect(result)">Resturant Profile</a>
+        <!-- <a (click)="onSelect(result)"  class="btn btn-primary">Resturant Profile</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
