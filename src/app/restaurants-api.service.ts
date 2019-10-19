@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class RestaurantsApiService {
 
-  baseUrl = 'http://localhost:3000/api/search';
+  baseUrl = '/api/search';
 
   // tslint:disable-next-line: variable-name
   private _restaurantProfile = new Subject<any>();
