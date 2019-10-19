@@ -12,7 +12,6 @@ export class DetailsComponent {
   @Output() notify = new EventEmitter<any>();
 
   results: any;
-  searchquery: any;
   constructor(private resturantApi: RestaurantsApiService, private router: Router) { }
 
   // ngOnInit() {
@@ -30,19 +29,19 @@ export class DetailsComponent {
     // this.router.navigate(['profile', item.id]);
   }
 
-  fetchApiResults() {
-    console.log(this.searchquery);
+  fetchApiResults(lat: any, lng: any) {
     // tslint:disable-next-line: triple-equals
-    if (this.searchquery != undefined) {
-      return this.resturantApi.getResultsWithParams(this.searchquery).subscribe(data => {
+      return this.resturantApi.getResultsWithParams(lat, lng).subscribe(data => {
         // console.log(data);
         this.results = data.results;
       });
-    }
   }
 
   handleAddressChange(address: any) {
     this.myaddress = address;
     console.log(this.myaddress);
+    console.log('Lat : ' + this.myaddress.geometry.location.lat());
+    console.log('Long : ' + this.myaddress.geometry.location.lng());
+    this.fetchApiResults(this.myaddress.geometry.location.lat(), this.myaddress.geometry.location.lng());
   }
 }

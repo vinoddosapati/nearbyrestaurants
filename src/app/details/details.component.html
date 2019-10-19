@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="input-group col-md-4">
+    <!-- <div class="input-group col-md-4">
         <input [(ngModel)] = "searchquery" class="form-control py-2" type="search" id="example-search-input">
 
         <span class="input-group-append">
@@ -7,11 +7,12 @@
                 <i class="fa fa-search">search</i>
             </button>
         </span>
-    </div>
+    </div> -->
+    <input class="form-control py-2" type="search" id="example-search-input" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+
 </div>
 
 
-<input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
 
 <!-- <app-profile-page></app-profile-page> -->
 

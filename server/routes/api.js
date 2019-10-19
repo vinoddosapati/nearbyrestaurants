@@ -5,10 +5,10 @@ const axios = require('axios');
 /* GET api listing. */
 router.get('/search', (req, res) => {
   API_KEY = 'AIzaSyDcX_ABXVp1M_OkjvJDyAAhGPnJsvsZhXg';
-  baseApiUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1500&type=restaurant&key=';
+  baseApiUrl = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=1500&type=restaurant&key=';
 
   console.log('reuest '+req.query);
-  API = baseApiUrl+API_KEY+"&name="+req.query.name;
+  API = baseApiUrl+API_KEY+"&location="+req.query.location;
   console.log('url: ' + API);
   //console.log(req.query.name);
 

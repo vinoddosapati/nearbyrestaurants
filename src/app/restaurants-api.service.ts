@@ -24,8 +24,9 @@ export class RestaurantsApiService {
     this._restaurantProfile.next(profile.name);
   }
 
-  getResultsWithParams(idparams: any) {
-    const params = new HttpParams().append('name', idparams);
+  getResultsWithParams(lat: any, lng: any) {
+    console.log(lat + ',' + lng);
+    const params = new HttpParams().append('location', lat + ',' + lng);
     return this._httpClient.get<any>(this.baseUrl, {params});
   }
 }
