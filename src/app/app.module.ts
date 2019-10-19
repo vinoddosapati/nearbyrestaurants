@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/nav.bar.component';
 import { DetailsComponent } from './details/details.component';
-import { SearchComponent } from './search/search.component';
 import { HeadermenuComponent } from './headermenu/headermenu.component';
 import { RestaurantsApiService } from './restaurants-api.service';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
@@ -22,7 +21,6 @@ const appRoutes: Routes = [];
     AppComponent,
     NavigationComponent,
     DetailsComponent,
-    SearchComponent,
     HeadermenuComponent,
     ProfilePageComponent
   ],
